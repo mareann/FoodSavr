@@ -24,9 +24,9 @@ module.exports = function(sequelize, DataTypes) {
     contact:  {
       type: DataTypes.STRING
     },
-    taxNumber:  {
+    /*taxNumber:  {
       type: DataTypes.STRING
-    },
+    },*/
     PreferredFood:  {
       type: DataTypes.INTEGER
     },
