@@ -20,6 +20,9 @@ module.exports = function(sequelize, DataTypes) {
     donorComments: {
       type: DataTypes.STRING
     },
+    donorId: {
+      type: DataTypes.INTEGER
+    },
     donorPickUpBegTime: {
       type: DataTypes.STRING
     },
