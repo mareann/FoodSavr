@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
   var FoodDonations = sequelize.define("FoodDonations", {
-    // Giving the model a name of type STRING
+    //
     //ID:  { 
     //  type: DataTypes.INTEGER//, 
       //autoIncrement: true 
@@ -19,9 +19,6 @@ module.exports = function(sequelize, DataTypes) {
     },
     donorComments: {
       type: DataTypes.STRING
-    },
-    donorId: {
-      type: DataTypes.INTEGER
     },
     donorPickUpBegTime: {
       type: DataTypes.STRING
