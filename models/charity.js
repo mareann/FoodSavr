@@ -29,9 +29,9 @@ module.exports = function(sequelize, DataTypes) {
     },
     // id from foodTypes table
     PreferredFood:  {
-      type1: DataTypes.INTEGER,
-      type2: DataTypes.INTEGER,
-      type3: DataTypes.INTEGER
+      type: DataTypes.INTEGER//,
+      //type2: DataTypes.INTEGER,
+      //type3: DataTypes.INTEGER
     },
     email:  {
       type: DataTypes.STRING
