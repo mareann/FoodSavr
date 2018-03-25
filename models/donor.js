@@ -24,9 +24,14 @@ module.exports = function(sequelize, DataTypes) {
     contact:  {
       type: DataTypes.STRING
     },
+    // id from donorTypes table
+    donorType: {
+      type: DataTypes.INTEGER
+    },
     /*taxNumber:  {
       type: DataTypes.STRING
     },*/
+    // id from foodTypes table
     PreferredFood:  {
       type: DataTypes.INTEGER
     },

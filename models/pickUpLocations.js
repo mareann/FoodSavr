@@ -5,6 +5,7 @@ module.exports = function(sequelize, DataTypes) {
     //  type: DataTypes.INTEGER//, 
       //autoIncrement: true 
     //},
+    // id from donorsInfo table
     donorId:  {
       type: DataTypes.INTEGER,
       allowNull: false

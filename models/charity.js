@@ -27,8 +27,11 @@ module.exports = function(sequelize, DataTypes) {
     taxNumber:  {
       type: DataTypes.STRING
     },
+    // id from foodTypes table
     PreferredFood:  {
-      type: DataTypes.INTEGER
+      type1: DataTypes.INTEGER,
+      type2: DataTypes.INTEGER,
+      type3: DataTypes.INTEGER
     },
     email:  {
       type: DataTypes.STRING
