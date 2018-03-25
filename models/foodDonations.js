@@ -28,6 +28,9 @@ module.exports = function(sequelize, DataTypes) {
     },
     CharityPickedUp: {
       type: DataTypes.BOOLEAN
+    },
+    Distance: {
+      type: DataTypes.FLOAT
     }
   },
      {
