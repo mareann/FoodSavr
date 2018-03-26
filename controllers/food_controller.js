@@ -4,37 +4,42 @@ var path = require("path");
 module.exports = function(app) {
 
 app.get("/", function(req, res) {
-  db.Burger.findAll({}).then(function(foodObject) {
+  db.foodTypes.findAll({}).then(function(foodObject) {
 
     var foodObject = {
-      burgers: burgerObject
+      foodType: foodTypeObject
     };
-    res.render("index", burgerObject);
+    res.render("index", foodObject);
   });
 });
 
 // Post request to add the new burger
-app.post("/api/burgers", function(req, res) {
+app.post("/api/donations", function(req, res) {
 
-  db.Burger.create({
-    burger_name: req.body.burger_name,
-    devoured: req.body.devoured
+  db.FoodDonations.create({
+    foodTypeId: req.body.foodTypeId,
+    foodImageURL: req.body.foodImageURL,
+    donorLocation: req.body.donorLocation,
+    donorComments: req.body.comments,
+    donorPickUpBegTime: req.body.donorPickUpBegTime,
+    donorPickUpEndTime: req.body.donorPickUpEndTime,
+    CharityPickedUp: req.body.CharityPickedUp
   })
-  .then(function(dbBurger) {
-    res.json(dbBurger);
+  .then(function(dbDonation) {
+    res.json(dbDonation);
   });
 });
 
-app.put("/api/burgers/:id", function(req, res) {
+app.put("/api/donations/:id", function(req, res) {
 
-  db.Burger.update({
-    devoured: req.body.devoured
+  db.FoodDonations.update({
+    CharityPickedUp req.body.PickedUp
   }, {
     where: {
       id: req.params.id
     }
-}).then(function(dbBurger) {
-  res.json(dbBurger);
+}).then(function(dbDonation) {
+  res.json(dbDonation);
   });
 });
 

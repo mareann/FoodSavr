@@ -1,14 +1,14 @@
 
-<h1>Eat The Burger!</h1>
+<h1>Food_Savr</h1>
 
-<div class="burgers">
+<div class="donations">
 <ul>
-  {{#each burgers}}
-      {{#unless devoured}}
-      <li id="uneaten">
+  {{#each foodImageURL}}
+      {{#unless CharityPickedUp}}
+      <li id="unclaimed">
         <p>
-        {{this.id}}. {{this.burger_name}}
-        <button data-burgerid="{{this.id}}" class="devourburger">Devour it!</button>
+        {{this.id}}. {{this.foodImageURL}}
+        <button data-foodid="{{this.id}}" class="food">Claim donation</button>
         </p>
       </li>
   {{/unless}}
@@ -16,12 +16,12 @@
 </ul>
 
 <ul>
-  <h3>Devoured Burgers</h3>
-  {{#each burgers}}
-      {{#if devoured}}
-      <li id="eaten">
+  <h3>Claimed Donations</h3>
+  {{#each foodImageURL}}
+      {{#if CharityPickedUp}}
+      <li id="claimed">
         <p>
-        {{this.id}}. {{this.burger_name}}
+        {{this.id}}. {{this.foodImageURL}}
         </p>
       </li>
   {{/if}}
@@ -32,8 +32,8 @@
 <div class="form-area">
   
 <form class="create-form">
-  <label for="addburger">Add a Burger: </label>
-  	<br><textarea id="addburger" type="text" name="burger_name" rows="4" cols="40"></textarea>
+  <label for="addDonation">Add a Donation: </label>
+  	<br><textarea id="adddonation" type="text" name="donation_name" rows="4" cols="40"></textarea>
 <br>
 <button id="submit" type="submit">Submit</button>
 </form>
