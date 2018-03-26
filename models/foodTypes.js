@@ -1,10 +1,15 @@
 module.exports = function(sequelize, DataTypes) {
+
+//////////////////////////////////////////////////////////////////////////
+// foodTypes.js
+// Food Types for fooddonations and charity request
+// ('All'), ('produce'), ('Italian'), ('Thai'), ('Indian'), ('American'),
+// ('French'), ('Mexican'),('Japanese'), ('Middle Eastern'),
+// ('Bakery'), ('Coffee Shop'), ('Greek'), ('Other')
+//////////////////////////////////////////////////////////////////////////
+ 
   var FoodTypes = sequelize.define("FoodTypes", {
-    // Giving the model a name of type STRING
-    //ID:  { 
-    //  type: DataTypes.INTEGER//, 
-      //autoIncrement: true 
-    //},
+
     foodType:  {
       type: DataTypes.STRING,
       allowNull: false
