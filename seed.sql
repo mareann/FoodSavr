@@ -16,8 +16,8 @@ delete from charityinfos;
 ALTER TABLE charityinfos AUTO_INCREMENT = 1;
 INSERT into charityInfos 
 (name, address, city, state, zip, contact, taxNumber, PreferredFood, 
-email, mobile, twitter, instagram, contact_mobile, contact_email, contact_twitter, 
-contact_instagram, username, password)
+email, mobile, twitter, instagram, contactmobileflag, contactemailflag, contacttwitterflag, 
+contactinstagramflag, username, password)
 
 VALUES 
 ("Chicago Community Ministry","6525 N Clark St.","Chicago","IL",60626,"Mr. Smith","C123",1,
@@ -38,7 +38,7 @@ VALUES
 delete from fooddonations;
 ALTER TABLE fooddonations AUTO_INCREMENT = 1;
 INSERT into fooddonations 
-(foodTypeId, foodImageUrl, donorId, donorLocation, donorComments, donorPickUpBegTime, donorPickUpEndTime, CharityPickedUp, Distance)
+(foodTypeId, foodImageUrl, donorId, donorLocation, donorComments, availableBegTime, availableEndTime, CharityPickedUpFlag, Distance)
 VALUES 
 (11,"",1,"4620 S Damen Ave Chicago IL 60609","lots of baked goods","05:00","07:00",false,0.0),
 (2,"",2,"4821 W North Ave Chicago IL 60639","all types of produce","06:00","08:30",false,0.0),
