@@ -13,6 +13,9 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: true
     },
+    donorId: {
+      type: DataTypes.INTEGER
+    },
     donorLocation:  {
       type: DataTypes.STRING,
       allowNull: false
