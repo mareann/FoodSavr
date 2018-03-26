@@ -1,4 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
+
   var CharityInfo = sequelize.define("CharityInfo", {
 
     name:  {
@@ -24,7 +25,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING
     },
     // id from foodTypes table
-    PreferredFood:  {
+    PreferredFoodTypeId:  {
       type: DataTypes.INTEGER//,
       //type2: DataTypes.INTEGER,
       //type3: DataTypes.INTEGER
