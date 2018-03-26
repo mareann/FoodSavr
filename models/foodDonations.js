@@ -1,10 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
+
   var FoodDonations = sequelize.define("FoodDonations", {
-    //
-    //ID:  { 
-    //  type: DataTypes.INTEGER//, 
-      //autoIncrement: true 
-    //},
+    // id from foodTypes table
     foodTypeId:  {
       type: DataTypes.INTEGER,
       allowNull: false
@@ -13,6 +10,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: true
     },
+    // id from donorInfo table
     donorId: {
       type: DataTypes.INTEGER
     },
@@ -23,16 +21,19 @@ module.exports = function(sequelize, DataTypes) {
     donorComments: {
       type: DataTypes.STRING
     },
-    donorPickUpBegTime: {
+    availableBegTime: {
       type: DataTypes.STRING
     },
-    donorPickUpEndTime: {
+    availableEndTime: {
       type: DataTypes.STRING
     },
-    CharityPickedUp: {
+    charityId: {
+      type: DataTypes.INTEGER
+    },
+    charityPickedUpFlag: {
       type: DataTypes.BOOLEAN
     },
-    Distance: {
+    distanceToCharity: {
       type: DataTypes.FLOAT
     }
   },
@@ -41,14 +42,6 @@ module.exports = function(sequelize, DataTypes) {
     }
 
   );
-/*
-  CharityInfo.associate = function(models) {
-    // Associating Author with Posts
-    // When an Author is deleted, also delete any associated Posts
-    Author.hasMany(models.Post, {
-      onDelete: "cascade"
-    });
-  };
-*/
+
   return FoodDonations;
 };
