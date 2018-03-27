@@ -1,10 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
+
   var CharityInfo = sequelize.define("CharityInfo", {
-    // Giving the model a name of type STRING
-    //ID:  { 
-    //  type: DataTypes.INTEGER//, 
-      //autoIncrement: true 
-    //},
+
     name:  {
       type: DataTypes.STRING,
       allowNull: false
@@ -28,7 +25,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING
     },
     // id from foodTypes table
-    PreferredFood:  {
+    PreferredFoodTypeId:  {
       type: DataTypes.INTEGER//,
       //type2: DataTypes.INTEGER,
       //type3: DataTypes.INTEGER
@@ -45,16 +42,16 @@ module.exports = function(sequelize, DataTypes) {
     instagram: {
       type: DataTypes.STRING
     },
-    contact_mobile:  {
+    contactMobileFlag:  {
       type: DataTypes.BOOLEAN
     },
-    contact_email: {
+    contactEmailFlag: {
       type: DataTypes.BOOLEAN
     },  
-    contact_twitter: {
+    contactTwitterFlag: {
       type: DataTypes.BOOLEAN
     },
-    contact_instagram:{
+    contactInstagramFlag:{
       type: DataTypes.BOOLEAN
     },
     username:  {
