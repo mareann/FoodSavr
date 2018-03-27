@@ -1,0 +1,27 @@
+
+<h1>Food_Savr</h1>
+
+<div class="donations">
+<ul>
+  {{#each FoodDonations}}
+      <li id="unclaimed">
+        <p>
+        Donation Number: {{this.id}} <span>Food id: </span> {{this.foodTypeId}} <p> Food image: </p> 
+        {{this.foodImageURL}} <p> Donor Location: {{this.donorLocation}} </p> <span> Donor Comments: {{this.donorComments}} </span><p> Donor Pick Up Start Time: {{this.donorPickUpBegTime}} Donor Pick Up End Time: {{this.donorPickUpEndTime}}</p> <p> Distance: {{this.Distance}} </p>
+        <button data-foodid="{{this.id}}" class="food">Claim donation</button>
+        </p>
+      </li>
+  {{/each}}
+</ul>
+
+
+</div>
+<div class="form-area">
+  
+<form class="create-form">
+  <label for="addDonation">Add a Donation: </label>
+  	<br><textarea id="adddonation" type="text" name="donation_name" rows="4" cols="40"></textarea>
+<br>
+<button id="submit" type="submit">Submit</button>
+</form>
+</div>

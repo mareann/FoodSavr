@@ -23,11 +23,23 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // Static directory
+
+var exphbs = require("express-handlebars");
+
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
+
 app.use(express.static("public"));
 
-// Routes
+require("./controllers/food_controller.js")(app);
+
+require("dotenv").config();
+
+require("./twitter.js");
+
+// Routes are now in the controller file
 // =============================================================
-require("./routes/html-routes.js")(app);
+// require("./routes/donors-api-routes.js")(app);
 //require("./routes/author-api-routes.js")(app);
 //require("./routes/post-api-routes.js")(app);
 
