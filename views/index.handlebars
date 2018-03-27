@@ -3,30 +3,17 @@
 
 <div class="donations">
 <ul>
-  {{#each foodImageURL}}
-      {{#unless CharityPickedUp}}
+  {{#each FoodDonations}}
       <li id="unclaimed">
         <p>
-        {{this.id}}. {{this.foodImageURL}}
+        Donation Number: {{this.id}} <span>Food id: </span> {{this.foodTypeId}} <p> Food image: </p> 
+        {{this.foodImageURL}} <p> Donor Location: {{this.donorLocation}} </p> <span> Donor Comments: {{this.donorComments}} </span><p> Donor Pick Up Start Time: {{this.donorPickUpBegTime}} Donor Pick Up End Time: {{this.donorPickUpEndTime}}</p> <p> Distance: {{this.Distance}} </p>
         <button data-foodid="{{this.id}}" class="food">Claim donation</button>
         </p>
       </li>
-  {{/unless}}
   {{/each}}
 </ul>
 
-<ul>
-  <h3>Claimed Donations</h3>
-  {{#each foodImageURL}}
-      {{#if CharityPickedUp}}
-      <li id="claimed">
-        <p>
-        {{this.id}}. {{this.foodImageURL}}
-        </p>
-      </li>
-  {{/if}}
-  {{/each}}
-</ul>
 
 </div>
 <div class="form-area">

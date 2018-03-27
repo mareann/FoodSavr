@@ -1,11 +1,9 @@
-$(function() {
 
-  require("dotenv").config();
   var keys = require("./keys.js");
-
   var Twitter = require('twitter');
   var client = new Twitter(keys.twitter);
   var request = require("request");
+
 
 // Function that grabs tweets and time of tweets from the food_savr Twitter timeline
   var obtainTweets = function () {
@@ -55,42 +53,3 @@ client.stream('statuses/filter', {track: '@food_savr'}, function(stream) {
   })
 });
 
-  // When the form is submitted, display the new food item on the screen.
-  $(".form").on("submit", function(event) {
-    event.preventDefault();
-    // Need to grab from the front end.
-    console.log($("#").val() + " val");
-
-    var newFood = {
-      foodType: $("#addFood").val().trim(),
-      available: "0"
-    };
-    console.log(newFood);
-
-    $.ajax("/api/food", {
-      type: "POST",
-      data: newFood
-    }).then(
-      function() {
-        location.reload();
-      })
-    });
-
-    $(".claimFood").on("click", function(event) {
-    var id = $(this).data("foodId");
-
-      var statusChange = {
-        available: "1"
-      };
-
-      $.ajax("/api/food/" + id, {
-        type: "PUT",
-        data: statusChange
-      }).then(
-        function() {
-          console.log("You claimed the food donation");
-          location.reload();
-        }
-      )
-    }) 
-  });

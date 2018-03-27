@@ -3,22 +3,44 @@ var path = require("path");
 
 module.exports = function(app) {
 
+// Get all food donations from the FoodDonations table
 app.get("/", function(req, res) {
-  db.foodTypes.findAll({}).then(function(foodObject) {
+  db.FoodDonations.findAll({}).then(function(foodObject) {
 
     var foodObject = {
-      foodType: foodTypeObject
+      FoodDonations: foodObject
     };
     res.render("index", foodObject);
   });
 });
 
-// Post request to add the new burger
+app.get("/donor", function(req,res) {
+  db.DonorInfo.findAll({}).then(function(donorObject) {
+
+    var donorObject = {
+      DonorInfos: donorObject
+    };
+    res.render("donor", donorObject);
+  })
+})
+
+// Get a donor from the list of donors
+app.get("/", function(req, res) {
+    db.DonorInfo.findOne({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbDonor) {
+      res.json(dbDonor);
+    });
+  });
+
+// Post new food donation to the FoodDonations Table
 app.post("/api/donations", function(req, res) {
 
   db.FoodDonations.create({
     foodTypeId: req.body.foodTypeId,
-    foodImageURL: req.body.foodImageURL,
+    foodImageUrl: req.body.foodImageUrl,
     donorLocation: req.body.donorLocation,
     donorComments: req.body.comments,
     donorPickUpBegTime: req.body.donorPickUpBegTime,
@@ -30,10 +52,11 @@ app.post("/api/donations", function(req, res) {
   });
 });
 
+// Update food donation status to pickedup (Column called CharityPickedUp in table FoodDonations)
 app.put("/api/donations/:id", function(req, res) {
 
   db.FoodDonations.update({
-    CharityPickedUp req.body.PickedUp
+    CharityPickedUp: req.body.PickedUp
   }, {
     where: {
       id: req.params.id
@@ -43,5 +66,16 @@ app.put("/api/donations/:id", function(req, res) {
   });
 });
 
-
+app.delete("/api/donations/:id", function(req, res) {
+  
+  db.FoodDonations.destroy({
+    CharityPickedUp: req.body.PickedUp
+  }, {
+    where: {
+      id: req.params.id
+    }
+  }).then(function(dbDonation) {
+    res.json(dbDonation);
+    });
+  });
 };

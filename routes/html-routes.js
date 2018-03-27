@@ -4,37 +4,39 @@
 
 // Dependencies
 // =============================================================
-var path = require("path");
+// var path = require("path");
 
-// Routes
-// =============================================================
-module.exports = function(app) {
+// Routes are in the food_controller.js file now.
 
-  // Each of the below routes just handles the HTML page that the user gets sent to.
+// // Routes
+// // =============================================================
+// module.exports = function(app) {
 
-  // index route loads view.html
-  app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/index.html"));
-  });
+//   // Each of the below routes just handles the HTML page that the user gets sent to.
 
-  // route loads .html
-  app.get("/donors", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/donors.html"));
-  });
+//   // index route loads view.html
+//   app.get("/", function(req, res) {
+//     res.sendFile(path.join(__dirname, "./views/"));
+//   });
 
-  // route loads .html
-  app.get("/charity", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/charity.html"));
-  });
+//   // route loads .html
+//   app.get("/donors", function(req, res) {
+//     res.sendFile(path.join(__dirname, "../public/donors.html"));
+//   });
 
-  // route loads .html
-  app.get("/about", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/about.html"));
-  });
+//   // route loads .html
+//   app.get("/charity", function(req, res) {
+//     res.sendFile(path.join(__dirname, "../public/charity.html"));
+//   });
 
-  // route loads .html
-  app.get("/contact", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/contact.html"));
-  });
+//   // route loads .html
+//   app.get("/about", function(req, res) {
+//     res.sendFile(path.join(__dirname, "../public/about.html"));
+//   });
 
-};
+//   // route loads .html
+//   app.get("/contact", function(req, res) {
+//     res.sendFile(path.join(__dirname, "../public/contact.html"));
+//   });
+
+// };
