@@ -10,3 +10,5 @@
 
 *FoodSavr is a full stack web app created using MySQL, Node, Express, Handlebars and sequelize. The MVC (Model View Controller) design pattern was used to build this web app.*
 
+See the project here: https://evening-cliffs-13570.herokuapp.com/
+
