@@ -24,11 +24,8 @@ module.exports = function(sequelize, DataTypes) {
     taxNumber:  {
       type: DataTypes.STRING
     },
-    // id from foodTypes table
     PreferredFoodTypeId:  {
-      type: DataTypes.STRING//,
-      //type2: DataTypes.INTEGER,
-      //type3: DataTypes.INTEGER
+      type: DataTypes.STRING
     },
     email:  {
       type: DataTypes.STRING
@@ -66,14 +63,5 @@ module.exports = function(sequelize, DataTypes) {
     }
 
   );
-/*
-  CharityInfo.associate = function(models) {
-    // Associating Author with Posts
-    // When an Author is deleted, also delete any associated Posts
-    Author.hasMany(models.Post, {
-      onDelete: "cascade"
-    });
-  };
-*/
   return CharityInfos;
 };

@@ -1,7 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
 
   var FoodDonations = sequelize.define("FoodDonations", {
-    // id from foodTypes table
     foodTypeId:  {
       type: DataTypes.STRING,
       allowNull: false
@@ -10,7 +9,6 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: true
     },
-    // id from donorInfo table
     donorId: {
       type: DataTypes.INTEGER
     },

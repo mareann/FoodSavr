@@ -30,20 +30,11 @@ app.get("/distancecalc", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/donors.html"));
   });
 
-  // route loads donorform.html for food donations
-  app.get("/donorform", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/donorform.html"));
-  });
-
   // route loads charity sign up form
   app.get("/charity", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/charity.html"));
   });
 
-  // route loads about page
-  app.get("/about", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/about.html"));
-  });
 
 // Get all donor info from DonorInfos table and display in donor.handlebars file
 app.get("/donor", function(req,res) {
@@ -75,7 +66,7 @@ app.post("/api/donations", function(req, res) {
     foodImageUrl: req.body.foodImageUrl,
     donorId: req.body.donorId,
     donorLocation: req.body.donorLocation,
-    comments: req.body.donorComments,
+    donorComments: req.body.donorComments,
     availableBegTime: req.body.availableBegTime,
     availableEndTime: req.body.availableEndTime,
     charityId: req.body.charityId,
@@ -157,17 +148,4 @@ app.put("/api/donations/:id", function(req, res) {
   });
 });
 
-// Delete food donation after it has been claimed
-// app.delete("/api/donations/:id", function(req, res) {
-  
-//   db.FoodDonations.destroy({
-//     CharityPickedUpFlag: req.body.charityPickedUpFlag
-//   }, {
-//     where: {
-//       id: req.params.id
-//     }
-//   }).then(function(dbDonation) {
-//     res.json(dbDonation);
-//     });
-//   });
 };
