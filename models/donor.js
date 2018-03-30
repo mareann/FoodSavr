@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
 
-  var DonorInfo = sequelize.define("DonorInfo", {
+  var DonorInfos = sequelize.define("DonorInfos", {
 
     name:  {
       type: DataTypes.STRING,
@@ -27,7 +27,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     // id from foodTypes table
     foodTypeId:  {
-      type: DataTypes.INTEGER
+      type: DataTypes.STRING
     },
     email:  {
       type: DataTypes.STRING
@@ -74,5 +74,5 @@ module.exports = function(sequelize, DataTypes) {
     });
   };
 */
-  return DonorInfo;
+  return DonorInfos;
 };
