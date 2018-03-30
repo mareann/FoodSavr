@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
- <body >
-</div>		
+  	 <script src="https://code.jquery.com/jquery.js"></script>
+  <!-- 	 <link href="js/foodSavr.js" type="text/JavaScript"> -->
+  </head>
+ <body>		
 <div id ="sign_in_heading">
 <h1>Charity Sign-up</h1>
 </div>
 
-<div class='m_wastenofood_charitiessignup-REST m-alert m-hidden'></div><div id = "submit_form">
+<div class='m_wastenofood_charitiessignup-REST m-alert m-hidden'></div>
+<div id = "submit_form">
 <form id="charities_form" class="form-horizontal">
 <fieldset>
 		<div class="control-group">
@@ -76,11 +79,15 @@
 <option value="West Virginia" >West Virginia</option>
 <option value="Wisconsin" >Wisconsin</option>
 <option value="Wyoming" >Wyoming</option>
-</select> 				<span class="m-form-error help-inline m-hidden" data-element="state486"></span>			</div>
-		</div>
+</select> 				
+<span class="m-form-error help-inline m-hidden" data-element="state486"></span>			
+</div>
+</div>
 		<div class="control-group">
-			<label class="control-label" for="zip322"> Zip </label>			<div class="controls">
-				 <input name="zip" id="zip322" type="text"    value="" /> 				<span class="m-form-error help-inline m-hidden" data-element="zip322"></span>			</div>
+			<label class="control-label" for="zip322"> Zip </label>			
+			<div class="controls">
+				 <input name="zip" id="zip322" type="text"  /> 			
+				 <span class="m-form-error help-inline m-hidden" data-element="zip322"></span>			</div>
 		</div>
 		<div class="control-group">
 			<label class="control-label" for="contact_person434"> Contact person </label>			<div class="controls">
@@ -138,19 +145,82 @@
 				 <input name="answer" id="answer865" type="text"    value="" /> 				<span class="m-form-error help-inline m-hidden" data-element="answer865"></span>			</div>
 		</div>
 <div class="form-actions">
-		 <input name="submit" id="submit160"  value="Submit" type="submit" class="btn btn-primary"></input> </div>
+		 <input name="submit" id="submit160"  value="Submit" type="submit" class="btn btn-primary"><!--  </input> --> 
+</div>
 </fieldset>
 </form>
-</div>
+ </div>
 			
-		</div>
+	<!--	</div> -->
 	
 		<div class="cleaner"></div>
-	</div>
+<!-- 	</div>
 </div>
+</div> -->
+<script type="text/JavaScript">
+$(function() {
+  // charity submit
+console.log("foodSavr")
+  $("#submit160").on("click", function(event) {
+     event.preventDefault();
 
+    var charity_name = $("#charity_name351").val().trim();
+    var charity_address = $("#address555").val().trim();
+    var charity_city = $("#city641").val().trim();
+    var charity_state = $("#state486").val().trim();
+    var charity_zip = $("#zip322").val().trim();
+    var charity_contact = $("#contact_person434").val().trim();
+    var charity_taxNumber = $("#number849").val().trim();
+    var charity_PreferredFoodTypeId = $("#cuisine536").val().trim();
+    var charity_email = $("#email369").val().trim();
+    var charity_mobile = "";
+    var charity_twitter = "";
+    var charity_instagram = "";
+    var charity_contactMobileFlag = 0;
+    var charity_contactEmailFlag = 0;
+    var charity_contactTwitterFlag = 0;
+    var charity_contactInstagramFlag = 0;
+    var charity_username = $("#username467").val().trim();
+    var charity_password = $("#password610").val().trim();
+    var charity_confirm = $("#confirm_password207").val().trim();
+    var charity_secQ = $("#question252").val().trim();
+    var charity_secA = $("#answer865").val().trim();
 
-
-
-
-</div>
+    console.log("name "+charity_name+" addr "+charity_address+" city "+charity_name);    
+    var newCharityInfo = {
+    name: charity_name,
+    address: charity_address,
+    city: charity_city,
+    state: charity_state,
+    zip: charity_zip,
+    contact: charity_contact,
+    taxNumber: charity_taxNumber,
+    PreferredFoodTypeId:charity_PreferredFoodTypeId,
+    email: charity_email,
+    mobile: charity_mobile,
+    twitter: charity_twitter,
+    instagram: charity_instagram,
+    contactMobileFlag: charity_contactMobileFlag,
+    contactEmailFlag: charity_contactEmailFlag,
+    contactTwitterFlag: charity_contactTwitterFlag,
+    contactInstagramFlag: charity_contactInstagramFlag,
+    username: charity_username,
+    password: charity_password
+    };
+  console.log("newCharityInfo "+JSON.stringify(newCharityInfo));
+  // Send the PUT request.
+    $.ajax("/api/charity", { //+charity_id, {
+      type: "POST",
+      data: newCharityInfo
+    }).then(
+      function() {
+        console.log("sent /api/charity", newCharityInfo);
+        // Reload the page to get the updated list
+        location.reload();
+      }
+    );
+  });
+});
+</script>
+</body>
+</html>
