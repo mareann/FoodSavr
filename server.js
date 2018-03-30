@@ -1,9 +1,4 @@
-// *****************************************************************************
-// Server.js - This file is the initial starting point for the Node/Express server.
-//
-// ******************************************************************************
-// *** Dependencies
-// =============================================================
+
 var express = require("express");
 var bodyParser = require("body-parser");
 
@@ -22,7 +17,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // parse application/json
 app.use(bodyParser.json());
 
-// Static directory
 
 var exphbs = require("express-handlebars");
 
@@ -36,12 +30,7 @@ require("./controllers/food_controller.js")(app);
 require("dotenv").config();
 
 require("./twitter.js");
-
-// Routes are now in the controller file
-// =============================================================
-// require("./routes/donors-api-routes.js")(app);
-//require("./routes/author-api-routes.js")(app);
-//require("./routes/post-api-routes.js")(app);
+require('google-distance-matrix');
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================

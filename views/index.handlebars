@@ -14,19 +14,14 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
-                <li class="active"><a href="/about">About</a></li>
-                <li><a href="/about">Donor Form</a></li>
-                <li><a href="/charity">Charity Form</a></li>
+                <li class="active"><a href="/">About</a></li>
+                <li><a href="/donors">Donor Sign Up Form</a></li>
+                <li><a href="/charity">Charity Sign Up Form</a></li>
                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Register <span class="caret"></span></a>
+                  <a href="/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Our Members <span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li class="dropdown-header">Nav header</li>
-                    <li><a href="#">Separated link</a></li>
-                    <li><a href="#">One more separated link</a></li>
+                    <li><a href="/charities">Our Charities</a></li>
+                    <li><a href="/donor">Our Donors</a></li>
                   </ul>
                 </li>
               </ul>
@@ -40,37 +35,19 @@
         <h1>Food Waste Reduction Through Donation</h1>
         <p>Roughly one third of the food produced in the world for human consumption every year, approximately 1.3 billion tons, gets lost or wasted.</p>
        </div>
-          <style>
-      .jumbotron {
-      background-image: url("https://static.pexels.com/photos/533360/pexels-photo-533360.jpeg");
-      background-size:100%;
-      </style>
-       }
-    <body>
-      <style>
-      body {
-    background-color: #8FBC8F;
-  }
-  </style>
-
-    <!-- Marketing messaging and featurettes
-    ================================================== -->
-    <!-- Wrap the rest of the page in another container to center all the content. -->
     </div>
 
-    </section>
-
+<div class="container">
      <section id="services" class="services-section" >
            <div class="container-fluid" >
             <div class="col-lg-12">
             <div class="col-md-4">
                 <img src="http://d3n8a8pro7vhmx.cloudfront.net/themes/55cbcf38ebad646519000001/attachments/original/1445376221/charities_icon.png?1445376221" />
                 <h2 class="text-green">Donors</h2>
-                <p>Restaurants, grocery stores, and farms who have excess food left over at the end of the day can opt to drop off .</p>
+                <p>Restaurants, grocery stores, and farms who have excess food left over at the end of the day can opt to drop off.</p>
             <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                 <div class="panel panel-default">
                   <div class="panel-heading" role="tab" id="headingOne">
-                   </h4>
                   </div>
                   <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
                     <div class="panel-body text-white">
@@ -98,9 +75,9 @@
             </div>
 
             <div class="col-md-4">
-                <img src="http://d3n8a8pro7vhmx.cloudfront.net/themes/55cbcf38ebad646519000001/attachments/original/1439774240/heart_icon.png?1439774240" />
-                <h2 class="text-white"> Charities</h2>
-                 <p>Food bank or charity who is able to accept excess food for your community.</p>
+                <img src="http://d3n8a8pro7vhmx.cloudfront.net/themes/55cbcf38ebad646519000001/attachments/original/1439774240/heart_icon.png?1439774240"/>
+                <h2 class="text-white">Charities</h2>
+                 <p>Food bank or charity who is able to accept excess food for your community. We ensure that the food is fresh.</p>
             <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                 <div class="panel panel-default">
                   <div class="panel-heading" role="tab" id="headingOne">
@@ -311,21 +288,18 @@ $(function() {
             console.log("distance results "+JSON.stringify(results));
             var distance = (results[0].distance.value/YardsInMile).toFixed(2);
             console.log("distance is "+distance)
-
       var newFoodDonation = {
       foodTypeId:       food_type,
       foodImageUrl:     "",
       donorId:          donor_id,
       donorLocation:    location_id,
-      donorComments:    comments,
-      availableBegTime: start_time,
-      availableEndTime: end_time,
+      donorComments:    donorComments,
+      availableBegTime: availableBegTime,
+      availableEndTime: availableEndTime,
       charityId:        charity_id,
       charityPickedUpFlag: 0,
       distanceToCharity: 0
     };
-
-
     $.ajax("/distancecalc", {
       type: "GET",
       data: {location: location_id}
