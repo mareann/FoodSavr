@@ -3,7 +3,7 @@ module.exports = function(sequelize, DataTypes) {
   var FoodDonations = sequelize.define("FoodDonations", {
     // id from foodTypes table
     foodTypeId:  {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: false
     },
     foodImageUrl: {
@@ -32,6 +32,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     charityPickedUpFlag: {
       type: DataTypes.BOOLEAN
+      
     },
     distanceToCharity: {
       type: DataTypes.FLOAT
