@@ -14,9 +14,25 @@ app.get("/", function(req, res) {
   });
 });
 
+
+app.get("/distancecalc", function(req, res) {
+    console.log(req.body.location)
+    db.CharityInfos.findAll({}).then(function(charityList){
+      // for each charity in charity list
+      // calculate the distance between the charity location and the donor location
+      // find least distance charity
+      //res.json that charity's information
+    })
+  });
+
   // route loads donor sign up form
   app.get("/donors", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/donors.html"));
+  });
+
+  // route loads donorform.html for food donations
+  app.get("/donorform", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/donorform.html"));
   });
 
   // route loads charity sign up form
@@ -31,7 +47,7 @@ app.get("/", function(req, res) {
 
 // Get all donor info from DonorInfos table and display in donor.handlebars file
 app.get("/donor", function(req,res) {
-  db.DonorInfo.findAll({}).then(function(donorObject) {
+  db.DonorInfos.findAll({}).then(function(donorObject) {
 
     var donorObject = {
       DonorInfos: donorObject
@@ -42,7 +58,7 @@ app.get("/donor", function(req,res) {
 
 // Get all charity info from the CharityInfos table and display in charity.handlebars file
 app.get("/charities", function(req,res) {
-  db.CharityInfo.findAll({}).then(function(charityObject) {
+  db.CharityInfos.findAll({}).then(function(charityObject) {
 
     var charityObject = {
       CharityInfos: charityObject
@@ -59,10 +75,11 @@ app.post("/api/donations", function(req, res) {
     foodImageUrl: req.body.foodImageUrl,
     donorId: req.body.donorId,
     donorLocation: req.body.donorLocation,
-    donorComments: req.body.donorComments,
+    comments: req.body.donorComments,
     availableBegTime: req.body.availableBegTime,
     availableEndTime: req.body.availableEndTime,
     charityId: req.body.charityId,
+    charityPickedUpFlag: 0,
     distanceToCharity: req.body.distanceToCharity
   })
   .then(function(dbDonation) {
@@ -73,7 +90,7 @@ app.post("/api/donations", function(req, res) {
 // Create a new charity to the CharityInfos table
 app.post("/api/charity", function(req, res) {
 
-  db.CharityInfo.create({
+  db.CharityInfos.create({
     name: req.body.name,
     address: req.body.address,
     city: req.body.city,
@@ -101,7 +118,7 @@ app.post("/api/charity", function(req, res) {
 // Create a new donor to the DonorInfos table
 app.post("/api/donor", function(req, res) {
 
-  db.DonorInfo.create({
+  db.DonorInfos.create({
     name: req.body.name,
     address: req.body.address,
     city: req.body.city,
@@ -130,7 +147,7 @@ app.post("/api/donor", function(req, res) {
 app.put("/api/donations/:id", function(req, res) {
 
   db.FoodDonations.update({
-    CharityPickedUpFlag: req.body.charityPickedUpFlag
+    charityPickedUpFlag: req.body.charityPickedUpFlag
   }, {
     where: {
       id: req.params.id
@@ -141,16 +158,16 @@ app.put("/api/donations/:id", function(req, res) {
 });
 
 // Delete food donation after it has been claimed
-app.delete("/api/donations/:id", function(req, res) {
+// app.delete("/api/donations/:id", function(req, res) {
   
-  db.FoodDonations.destroy({
-    CharityPickedUpFlag: req.body.charityPickedUpFlag
-  }, {
-    where: {
-      id: req.params.id
-    }
-  }).then(function(dbDonation) {
-    res.json(dbDonation);
-    });
-  });
+//   db.FoodDonations.destroy({
+//     CharityPickedUpFlag: req.body.charityPickedUpFlag
+//   }, {
+//     where: {
+//       id: req.params.id
+//     }
+//   }).then(function(dbDonation) {
+//     res.json(dbDonation);
+//     });
+//   });
 };
