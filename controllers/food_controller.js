@@ -66,7 +66,7 @@ app.post("/api/donations", function(req, res) {
     foodImageUrl: req.body.foodImageUrl,
     donorId: req.body.donorId,
     donorLocation: req.body.donorLocation,
-    comments: req.body.donorComments,
+    donorComments: req.body.donorComments,
     availableBegTime: req.body.availableBegTime,
     availableEndTime: req.body.availableEndTime,
     charityId: req.body.charityId,

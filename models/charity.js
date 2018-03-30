@@ -24,11 +24,8 @@ module.exports = function(sequelize, DataTypes) {
     taxNumber:  {
       type: DataTypes.STRING
     },
-    // id from foodTypes table
     PreferredFoodTypeId:  {
-      type: DataTypes.STRING//,
-      //type2: DataTypes.INTEGER,
-      //type3: DataTypes.INTEGER
+      type: DataTypes.STRING
     },
     email:  {
       type: DataTypes.STRING

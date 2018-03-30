@@ -144,67 +144,55 @@
 
  </section>
 
-<section>
-    <div class="twitter-feed">
+<!--     <div class="twitter-feed">
     <a class="twitter-timeline" href="https://twitter.com/Food_Savr">Tweets by Food_Savr</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-    </div>
+    </div> -->
 
   
 </div>
 </div>
 </div>
+</section>
+</div>
 
-    <div class="footer">
-    <a href="https://twitter.com/Food_Savr?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @Food_Savr</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-    </div>
-
-    <style>
-    .twitter-feed {
-        width: 400px;
-        height: 400px;
-    }
-    
-    .footer {
-        margin-top: 100px;
-    }
-
-    </style>
-
+    <div class="container">
+    <div class="row">
+    <div class="col-md-6">
     <div class="donor-form">
     <form>
+          <h1>Donation Form. Enter food items you want to donate!</h1>
     First name:<br>
-    <input type="text" name="firstname" id="firstName" value=" "><br>
+    <input type="text" name="firstname" id="firstName" value=""><br><br>
     Last name:<br>
-    <input type="text" name="lastname" id="lastName" value=" "><br><br>
-    Food Type:<br>
-    <input type="foodTypeId" name="foodtype" id="foodType" value="food"><br><br>
-    Donor id<br>
-    <input type="donorId" name="donor" id="donorId" value="donor"><br><br>
-    Donor Location<br>
-    <input type="donorLocation" name="donorLocation" id="locationId" value="donorLocation"><br><br>
-    Donor Comments<br>
-    <input type="donorComments" name="donorComments" value="donorComments" id="comments"><br><br>
-    Available Beg Time<br>
-    <input type="availableBegTime" name="availableBegTime" id="begTime" value="availableBegTime"><br><br>
-    Available End Time<br>
-    <input type=" availableEndTime" name="availableEndTime" id="endTime" value=" availableEndTime"><br><br>
-    Charity Id<br>
-    <input type="charityId" name="CharityId" id="charityId" value="charityId"><br><br>
-   
-    
+    <input type="text" name="lastname" id="lastName" value=""><br><br>
+    Food Type Id:<br>
+    <input type="number" name="foodtype" id="foodType" value=""><br><br>
+    Donor Id:<br>
+    <input type="number" name="donor" id="donorId" value=""><br><br>
+    Donor Location:<br>
+    <input type="text" name="donorLocation" id="locationId" value=""><br><br>
+    Donor Food Description:<br>
+    <input type="text" name="donorComments" value="" id="donorComments"><br><br>
+    Pick Up Time Start:<br>
+    <input type="availableBegTime" name="availableBegTime" id="availableBegTime" value=""><br><br>
+    Pick Up Time End:<br>
+    <input type="availableEndTime" name="availableEndTime" id="availableEndTime" value=""><br><br>
     <input type="submit" value="Submit" id="donorSubmit">
     </form>
     </div>
   </section>
-
+</div>
+    <div class="col-md-6">
     <div class="donations">
+    <h1>Donations available for charity pickup:</h1>
+    <br>
 <ul>
   {{#each FoodDonations}}
    {{#unless charityPickedUpFlag}}
       <li id="unclaimed">
         <p>
         Donation Number: {{this.id}} <span>Food id: </span> {{this.foodTypeId}} </p> 
-        <p> Donor Location: {{this.donorLocation}} </p> <span> Donor Comments: {{this.donorComments}} </span><p> Donor Pick Up Start Time: {{this.availableBegTime}} Donor Pick Up End Time: {{this.availableEndTime}}</p> <p> Distance: {{this.distanceToCharity}} </p>
+        <p> Donor Location: {{this.donorLocation}} </p> <span> Donor Comments: {{this.donorComments}} </span><p> Pick Up Start Time: {{this.availableBegTime}} Pick Up End Time: {{this.availableEndTime}}</p> <p> Distance: {{this.distanceToCharity}} </p>
         <button data-foodid="{{this.id}}" class="food">Claim donation</button>
         </p>
       </li>
@@ -213,12 +201,27 @@
 </ul>
 
 </div>
+</div>
+</div>
+<br><br>
+<div class="row">
+      <div class="twitter-feed">
+        <h3>Food Savr Twitter Feed</h3>
+<a class="twitter-timeline" data-width="400" data-height="400" href="https://twitter.com/Food_Savr?ref_src=twsrc%5Etfw">Tweets by Food_Savr</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
+</div>
+<br>
+<br>
+<br>
 
 
       <!-- FOOTER -->
+          <div class="footer">
+    <a href="https://twitter.com/Food_Savr?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @Food_Savr</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+    </div>
       <footer>
         <p class="pull-right"><a href="#">Back to top</a></p>
-        <p>&copy; Created by: Maryann, Angela Frys, & Sarah Learner &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+        <p>&copy; Created by: Maryann Jordan, Angela Frys, & Sarah Learner &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
       </footer>
 
     </div><!-- /.container -->
@@ -231,8 +234,6 @@
 <script>
 
 $(function() {
-
-  console.log("foodSavr")
   $("#donorSubmit").on("click", function(event) { //was async
     event.preventDefault();
     var YardsInMile = 1760;
@@ -241,23 +242,16 @@ $(function() {
     var food_type = $("#foodType").val().trim();
     var donor_id = $("#donorId").val().trim();
     var location_id = $("#locationId").val().trim();
-    var comments = $("#comments").val().trim();
-    var start_time = $("#begTime").val().trim();
-    var end_time = $("#endTime").val().trim();
-    var charity_id = $("#charityId").val().trim();
+    var donorComments = $("#donorComments").val().trim();
+    var availableBegTime = $("#availableBegTime").val().trim();
+    var availableEndTime = $("#availableEndTime").val().trim();
+    var charity_id = 5;
     var charityPickedUpFlag= 0;
-    console.log("name "+first_name+" "+last_name+" food_type "+food_type); 
-    console.log("food "+food_type+" donor "+donor_id+" loc "+location_id);
-    console.log("comments "+comments);
-    console.log("start_time "+start_time+" end_time "+end_time);
-    console.log("charity_id "+charity_id);
-    console.log("charity pickedup " + charityPickedUpFlag);
+
 //origin 1, Chicago Community Ministry, 6525 N Clark St., Chicago, IL, 60626, Mr. Smith, C123, 1, , (773)761-6688, , , 1, 1, 0, 0, u, p
 //destination 2, Food4Less Washington Square, 4821 W North Ave, Chicago, IL, 60639, Ms McDougal, 2, 1, p@food.com, (773)235-1783, @Wash, , 1, 1, 0, 0, m, p
-
       var origin = "6525 N Clark St., Chicago, IL, 60626";
       var destination = "4821 W North Ave, Chicago, IL, 60639";
-
       var service = new google.maps.DistanceMatrixService;
         service.getDistanceMatrix({
           origins: [origin],
@@ -275,7 +269,6 @@ $(function() {
             //var outputDiv = document.getElementById('output');
             //outputDiv.innerHTML = '';
             };
-
             for (var i = 0; i < originList.length; i++) {
               var results = response.rows[i].elements;
               for (var j = 0; j < results.length; j++) {
@@ -310,8 +303,6 @@ $(function() {
         //do something with that, idk, whatever
       }
     );
-
-
     console.log("newFoodDonation "+JSON.stringify(newFoodDonation));
   // Send the PUT request.
     $.ajax("/api/donations", {
@@ -321,22 +312,15 @@ $(function() {
       function() {
         console.log("sent /api/donations", newFoodDonation);
         // Reload the page to get the updated list
-        //location.reload();
+        location.reload();
       }
     ); // end .then
-
-
     
-
-
            // console.log("distance output "+results);
   }); // end service.getDistanceMatrix function
-
   }); //donor submit function end
-
   $(".food").on("click", function(event) {
     var id = $(this).data("foodid");
-
     var charityPickedUp = {
       charityPickedUpFlag: 1
     };
@@ -346,14 +330,10 @@ $(function() {
       data: charityPickedUp
     }).then(
       function() {
-      	console.log("You claimed the donation");
-      	location.reload();
+        console.log("You claimed the donation");
+        location.reload();
       }
     )
    })
   });
-
 </script>
-
-
-
