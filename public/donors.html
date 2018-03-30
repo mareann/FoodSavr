@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
- <body >
+  	      <script src="https://code.jquery.com/jquery.js"></script>
+ <body>
 
     </div>
     <div id="column2" style="width: 650px;">    
@@ -174,3 +175,50 @@
 
 
 </div>
+
+<script>
+
+	$(function() {
+  
+  $("#donor_form").on("submit", function(event) {
+    event.preventDefault();
+    console.log($("#donor_name682").val() + " val");
+    console.log($("#address681").val() + " val");
+
+    var newDonor = {
+      name: $("#donor_name682").val().trim(),
+      address: $("#address681").val().trim(),
+      city: $("#city901").val().trim(),
+      state: $("#state868").val().trim(),
+      zip: $("#zip720").val().trim(),
+      contact: $("#contact_person523").val().trim(),
+      donorTypeId: 1,
+      foodTypeId: $("#cuisine761").val().trim(),
+      email: $("#email313").val().trim(),
+      mobile: $("#donor_phone601").val().trim(),
+      charity_twitter: "",
+      charity_instagram: "",
+      charity_contactMobileFlag: 0,
+      charity_contactEmailFlag: 0,
+      charity_contactTwitterFlag: 0,
+      charity_contactInstagramFlag: 0,
+      username: $("#username753").val().trim(),
+      password: $("#password322").val().trim()
+    };
+
+    console.log(newDonor);
+
+    $.ajax("/api/donor", {
+      type: "POST",
+      data: newDonor
+    }).then(
+      function() {
+        console.log("added new record");
+        alert("Thank you for registering as a donor!")
+        location.reload();
+      })
+    });
+    
+  });
+
+</script>
