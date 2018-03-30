@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
 
-  var CharityInfo = sequelize.define("CharityInfo", {
+  var CharityInfos = sequelize.define("CharityInfos", {
 
     name:  {
       type: DataTypes.STRING,
@@ -26,7 +26,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     // id from foodTypes table
     PreferredFoodTypeId:  {
-      type: DataTypes.INTEGER//,
+      type: DataTypes.STRING//,
       //type2: DataTypes.INTEGER,
       //type3: DataTypes.INTEGER
     },
@@ -75,5 +75,5 @@ module.exports = function(sequelize, DataTypes) {
     });
   };
 */
-  return CharityInfo;
+  return CharityInfos;
 };
