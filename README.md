@@ -18,3 +18,4 @@ The project also has a TwitterBot. If you visit our Twitter page and tweet @Food
 
 ##### Below is a sample screen
 ![screen](public/img/foodmain3.jpg)
+
