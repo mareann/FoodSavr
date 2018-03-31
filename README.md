@@ -17,4 +17,5 @@ The project also has a TwitterBot. If you visit our Twitter page and tweet @Food
  
 
 ##### Below is a sample screen
-![screen](img/foodmain3.jpg)
+![screen](public/img/foodmain3.jpg)
+
