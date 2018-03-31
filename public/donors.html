@@ -263,9 +263,10 @@
     event.preventDefault();
 
     //change string to int for foodTypeId in donorInfos table mj
-    var cuisineid = 0;   
+ //   var cuisineid = 0;   
     var cuisine = $("#cuisine761").val().trim();
-
+    console.log("cuisine "+cuisine)
+/*
     switch (cuisine)
     {
       case 'Produce':
@@ -310,10 +311,10 @@
       default:
         cuisineid = 0;
     }
-
+*/
     //change string to int for donorTypeId in donorInfos table mj
     
-    var  donortypeid = 0;   
+    var donortypeid = 0;   
     var donor = $("#type_of_donor").val().trim();    
 
     switch (donor)
@@ -342,7 +343,7 @@
       zip: $("#zip720").val().trim(),
       contact: $("#contact_person523").val().trim(),
       donorTypeId: donortypeid, //1,
-      foodTypeId: cuisineid,  // $("#cuisine761").val().trim(),
+      foodTypeId: cuisine,  // $("#cuisine761").val().trim(),
       email: $("#email313").val().trim(),
       mobile: $("#donor_phone601").val().trim(),
       twitter: "",
