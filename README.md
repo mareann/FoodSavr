@@ -14,18 +14,33 @@ See the project here: https://evening-cliffs-13570.herokuapp.com/
 
 The project also has a TwitterBot. If you visit our Twitter page and tweet @Food_Savr https://twitter.com/Food_Savr , you will receive a thank you response and a random fact about food waste.
 
-##### Below is a sample twitter feed
+##### FoodSavr twitter screen
+![screen](public/img/foodtwitterpage.jpg)
+
+
+##### Below is a sample twitter feed on main page
 ![screen](public/img/foodmain3.jpg)
 
 ##### Main screen 
 ![screen](public/img/foodmain1.jpg)
 ![screen](public/img/foodmain2.jpg)
 
+##### Below is a sample twitter feed on main page
+![screen](public/img/foodmain3.jpg)
+
 ##### Donor register screen
 ![screen](public/img/fooddonor.jpg)
 
 ##### Charity register screen
 ![screen](public/img/foodcharity.jpg)
+
+##### Donor listing screen
+![screen](public/img/fooddonorlist.jpg)
+
+##### Charity listing screen
+![screen](public/img/foodcharitylist.jpg)
+
+
 
 
 
