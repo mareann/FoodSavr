@@ -17,7 +17,7 @@ The project also has a TwitterBot. If you visit our Twitter page and tweet @Food
 ##### Below is a sample twitter feed
 ![screen](public/img/foodmain3.jpg)
 
-##### Main screen
+##### Main screen 
 ![screen](public/img/foodmain1.jpg)
 ![screen](public/img/foodmain2.jpg)
 
@@ -26,6 +26,7 @@ The project also has a TwitterBot. If you visit our Twitter page and tweet @Food
 
 ##### Charity register screen
 ![screen](public/img/foodcharity.jpg)
+
 
 
 
