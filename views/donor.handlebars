@@ -1,15 +1,70 @@
+    <div class="navbar-wrapper">
+      <div class="container">
 
-<h1>Food_Savr Donors</h1>
+        <nav class="navbar navbar-inverse navbar-static-top">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">FoodSavr</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li><a href="/">About</a></li>
+                <li><a href="/donors">Donor Sign Up Form</a></li>
+                <li><a href="/charity">Charity Sign Up Form</a></li>
+                <li class="dropdown active">
+                  <a href="/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Our Members <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="/charities">Our Charities</a></li>
+                    <li><a href="/donor">Our Donors</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+<div class="container">
+      <div class="jumbotron">
+        <h1>Food Waste Reduction Through Donation</h1>
+        <p>Roughly one third of the food produced in the world for human consumption every year, approximately 1.3 billion tons, gets lost or wasted.</p>
+       </div>
+<div class="row">
+<div class="col-md-12 header1">
+       <h1>FoodSavr Donors</h1>
+       <br>
 
 <div class="donors">
 <ul>
   {{#each DonorInfos}}
-      <li id="unclaimed">
+      <li>
         <p>
-        Donor Number: {{this.id}} <p> Donor Name: {{this.name}} </p> <p> Address:
+        Donor Number: {{this.id}} Donor Name: {{this.name}} </p> <p> Address:
         {{this.address}} {{this.donorLocation}} {{this.city}} {{this.state}} {{this.zip}} </p>
         <p>Type of food: {{this.foodTypeId}}
         </p>
       </li>
   {{/each}}
 </ul>
+</div>
+</div>
+      <!-- FOOTER -->
+          <div class="footer">
+    <a href="https://twitter.com/Food_Savr?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @Food_Savr</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
+      <footer>
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>&copy; Created by: Maryann Jordan, Angela Frys, & Sarah Learner &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+      </footer>
+
+    </div><!-- /.container -->
+    
+    </div>
+  </section>
+</div>
